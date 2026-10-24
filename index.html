@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia da Aprovação RM2 - Marinha do Brasil</title>
+    <!-- Fonte do Google (Montserrat) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================= */
+        /* RESET E CONFIGURAÇÕES GERAIS              */
+        /* ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            color: #334155;
+            line-height: 1.6;
+            background-color: #0c2340;
+            position: relative;
+            z-index: 0;
+            overflow-x: hidden;
+        }
+
+        /* ========================================= */
+        /* FUNDO REALISTA DE MAR                     */
+        /* ========================================= */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            width: 100vw; 
+            height: 100vh;
+            background-image: 
+                linear-gradient(180deg, rgba(10, 25, 47, 0.25) 0%, rgba(15, 30, 60, 0.45) 100%),
+                url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        /* ========================================= */
+        /* CARTÕES FROSTED GLASS                     */
+        /* ========================================= */
+        .glass-section {
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 18px;
+            padding: 45px 40px;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18), 0 2px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            position: relative;
+        }
+
+        .glass-highlight {
+            background: rgba(255, 255, 255, 0.97);
+            border-left: 6px solid #1E3A8A;
+        }
+
+        /* ========================================= */
+        /* HERO SECTION                              */
+        /* ========================================= */
+        .hero {
+            padding-top: 30px;
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        .hero-text {
+            flex: 1.25;
+            text-align: left;
+        }
+        .hero-media {
+            flex: 0.75;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-headline {
+            display: block;
+            color: #0A192F; 
+            font-size: 3.1rem;
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+        .sub-headline {
+            display: block;
+            color: #1E3A8A; 
+            font-size: 1.35rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+        .hero-description {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-bottom: 30px;
+        }
+
+        /* FOTO 1 (HERO) */
+        .hero-photo-container {
+            width: 100%;
+            max-width: 360px;
+            border-radius: 14px;
+            box-shadow: 0 15px 35px rgba(10, 25, 47, 0.25);
+            border: 3px solid #D4AF37;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFFFFF;
+        }
+        .hero-photo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 11px;
+        }
+
+        /* ========================================= */
+        /* BOTÕES DE COMPRA VERDES                   */
+        /* ========================================= */
+        .cta-button {
+            display: inline-block;
+            width: 100%;
+            max-width: 480px;
+            padding: 20px 25px;
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%); 
+            color: #FFFFFF;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 800;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid #34D399;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 12px 28px rgba(16, 185, 129, 0.55);
+        }
+        .center-cta {
+            text-align: center;
+            margin: 35px 0 10px 0;
+        }
+
+        h2 {
+            color: #0A192F;
+            font-size: 1.85rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+        }
+        h2 svg {
+            width: 32px;
+            height: 32px;
+            fill: #1E3A8A;
+            flex-shrink: 0;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            color: #334155;
+        }
+
+        .check-list { list-style: none; margin-bottom: 20px; }
+        .check-list li {
+            position: relative;
+            padding-left: 38px;
+            margin-bottom: 15px;
+            color: #1E293B;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+        .check-list li::before {
+            content: '✔';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: #FFFFFF; 
+            font-weight: bold;
+            font-size: 0.9rem;
+            background: #10B981; 
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+        }
+
+        /* ========================================= */
+        /* SEÇÃO AUTORA                              */
+        /* ========================================= */
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            background: linear-gradient(135deg, #0A192F 0%, #0F284E 100%);
+            color: #F8FAFC;
+            padding: 45px 40px;
+            border-radius: 18px;
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.35);
+            border: 2px solid #D4AF37;
+            margin-bottom: 35px;
+        }
+        .author-section h2 {
+            color: #D4AF37;
+        }
+        .author-section h2 svg {
+            fill: #D4AF37;
+        }
+        .author-section p {
+            color: #E2E8F0;
+        }
+        
+        /* FOTO 2 (AUTORA) */
+        .author-photo-container {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 14px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+            border: 4px solid #D4AF37;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFFFFF;
+            flex-shrink: 0;
+        }
+        .author-photo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* ========================================= */
+        /* PREÇO E OFERTA                            */
+        /* ========================================= */
+        .price-box {
+            text-align: center;
+            padding: 45px 30px;
+            background: #FFFFFF;
+            border: 2px solid #93C5FD;
+            border-radius: 18px;
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.12);
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #EF4444; 
+            font-size: 1.3rem;
+            margin-bottom: -5px;
+            font-weight: 600;
+        }
+        .new-price {
+            font-size: 4rem;
+            color: #0A192F;
+            font-weight: 900;
+            margin: 10px 0;
+            text-shadow: 0 2px 10px rgba(10, 25, 47, 0.1);
+        }
+
+        /* ========================================= */
+        /* FAQ INTERATIVO                            */
+        /* ========================================= */
+        details.faq-item {
+            background: #FFFFFF;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid #E2E8F0;
+            border-left: 4px solid #1E3A8A;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+        }
+        details.faq-item[open] {
+            border-left-color: #10B981;
+            box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+        }
+        summary.faq-summary {
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0A192F;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary.faq-summary::-webkit-details-marker {
+            display: none;
+        }
+        summary.faq-summary::after {
+            content: '+';
+            font-size: 1.6rem;
+            color: #1E3A8A;
+            transition: transform 0.3s ease;
+        }
+        details[open] summary.faq-summary::after {
+            content: '−';
+            color: #10B981;
+            transform: rotate(180deg);
+        }
+        .faq-content {
+            padding: 0 20px 20px 20px;
+            color: #475569;
+            font-size: 1.05rem;
+            border-top: 1px solid #F1F5F9;
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        /* ========================================= */
+        /* RODAPÉ                                    */
+        /* ========================================= */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #0A192F;
+            color: #94A3B8;
+            font-size: 0.95rem;
+            border-top: 3px solid #D4AF37;
+        }
+        footer a {
+            color: #F8FAFC;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            color: #D4AF37;
+        }
+
+        /* ========================================= */
+        /* RESPONSIVIDADE                             */
+        /* ========================================= */
+        @media (max-width: 850px) {
+            .hero-grid { flex-direction: column-reverse; text-align: center; }
+            .hero-text { text-align: center; }
+            .main-headline { font-size: 2.3rem; }
+            .sub-headline { font-size: 1.15rem; }
+            .hero-photo-container { margin: 0 auto; max-width: 280px; }
+            .author-section { flex-direction: column; text-align: center; }
+            .author-photo-container { max-width: 100%; margin: 0 auto; }
+            .glass-section { padding: 30px 20px; }
+            .new-price { font-size: 3.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- PRIMEIRA DOBRA -->
+        <header class="glass-section hero">
+            <div class="hero-grid">
+                
+                <div class="hero-text">
+                    <h1 style="margin-bottom: 0;">
+                        <span class="main-headline">Guia da Aprovação RM2</span>
+                        <span class="sub-headline">O Caminho Mais Rápido para sua aprovação como Praça ou Oficial Temporário da Marinha.</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        Sente e estude com o planejamento exato que me fez ser aprovada em 1º lugar. Pare de perder tempo tentando montar cronogramas que não funcionam. Tenha acesso a um sistema de estudo inteligente, adaptável ao seu nível e saiba exatamente quando e o que estudar, revisar e praticar todos os dias até a prova.
+                    </p>
+                    
+                    <a href="https://kiwify.app/hcuyfLO" class="cta-button" target="_blank">QUERO GARANTIR MEU PLANEJAMENTO AGORA</a>
+                </div>
+
+                <div class="hero-media">
+                    <div class="hero-photo-container">
+                        <img src="01.jpeg" alt="Gessyca Paaz - 1º Lugar RM2 Marinha">
+                    </div>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- SEÇÃO 2: PNL E DESEJO -->
+        <section class="glass-section glass-highlight">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M22.95 15.22A1 1 0 0 0 22 15h-1V9a1 1 0 0 0-.55-.89l-8-4a1 1 0 0 0-.9 0l-8 4A1 1 0 0 0 3 9v6H2a1 1 0 0 0-.95 1.22l2 8A1 1 0 0 0 4 25h16a1 1 0 0 0 .97-.78l2-8zM12 5.61 17.76 8.5H6.24L12 5.61zM5 10.5h14V15H5v-4.5zM4.1 23l-1.5-6h18.8l-1.5 6H4.1z"/></svg>
+                Feche os olhos por um instante e imagine...
+            </h2>
+            <p>Imagine estar em um ônibus lotado em um dia comum, pegar o celular, abrir o Diário Oficial e ver o <strong>seu nome na lista de aprovados</strong>. O coração acelera, um peso enorme sai das suas costas e a sensação de dever cumprido toma conta de você.</p>
+            <p>Imagine o orgulho da sua família no dia da sua formatura. Imagine você vestindo a farda branca da Marinha do Brasil pela primeira vez, sentindo o peso daquela conquista, a estabilidade, o prestígio e o respeito que vêm junto com ela.</p>
+            <p>Isso não é um sonho distante. É o resultado de quem estuda com direção. O que separa você dessa realidade hoje não é a sua inteligência, é a sua estratégia.</p>
+        </section>
+
+        <!-- SEÇÃO 3: DOR E CONTRASTE -->
+        <section class="glass-section">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                Mas, se somos honestos... Essa é a sua realidade hoje?
+            </h2>
+            <ul style="color: #1E293B; font-weight: 500;">
+                <li>Você tem pouco tempo para estudar e não faz ideia de por onde começar a cobrir um edital tão denso?</li>
+                <li>Começa a estudar animado, mas logo perde a constância porque se sente perdido?</li>
+                <li>Até já estuda há algum tempo, mas sente que empacou: precisa melhorar seu desempenho, medir acertos/erros e organizar a reta final?</li>
+                <li>Sente ansiedade por não saber dividir seu tempo entre Teoria, Questões, Resumos e Revisões?</li>
+            </ul>
+            <p style="background: #FEE2E2; padding: 16px; border-radius: 8px; border-left: 4px solid #DC2626; margin-top: 20px; color: #991B1B;">
+                Se você respondeu <strong>SIM</strong> para alguma dessas perguntas, saiba que a culpa não é sua e o problema não é a sua capacidade. O problema é a falta de um método de organização direcionado.
+            </p>
+        </section>
+
+        <!-- SEÇÃO 4: SOLUÇÃO -->
+        <section class="glass-section glass-highlight">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M12 2a1 1 0 0 1 1 1v1.05a8.03 8.03 0 0 1 4.95 2.05l.74-.75a1 1 0 1 1 1.42 1.42l-.75.74A8.03 8.03 0 0 1 21.41 12H22.5a1 1 0 0 1 0 2h-1.09a8.03 8.03 0 0 1-2.05 4.95l.75.74a1 1 0 1 1-1.42 1.42l-.74-.75A8.03 8.03 0 0 1 13 22.41V23.5a1 1 0 0 1-2 0v-1.09a8.03 8.03 0 0 1-4.95-2.05l-.74.75a1 1 0 1 1-1.42-1.42l.75-.74A8.03 8.03 0 0 1 2.59 14H1.5a1 1 0 0 1 0-2h1.09a8.03 8.03 0 0 1 2.05-4.95l-.75-.74a1 1 0 1 1 1.42-1.42l.74.75A8.03 8.03 0 0 1 11 4.05V3a1 1 0 0 1 1-1zm0 4a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/></svg>
+                Conheça o Guia da Aprovação RM2 Marinha
+            </h2>
+            <p>Muito mais que uma simples planilha, este é o seu mapa definitivo de aprovação. O trabalho duro de analisar provas anteriores, mapear os assuntos mais cobrados e dividir o tempo ideal para cada tarefa já foi feito por mim. Sua única missão agora é sentar e executar.</p>
+            <ul class="check-list">
+                <li><strong>Tudo Mapeado:</strong> Edital verticalizado com ênfase no que a Marinha mais cobra.</li>
+                <li><strong>Divisão Inteligente:</strong> Controle diário de horas de estudo e tarefas (Teoria, Questões, Resumo, Revisão e Simulados).</li>
+                <li><strong>Acompanhamento Visual:</strong> Gráficos de fácil leitura para você visualizar seu progresso no edital e seu quantitativo de acertos e erros.</li>
+            </ul>
+        </section>
+
+        <!-- SEÇÃO 5: AS 3 FASES -->
+        <section class="glass-section">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm2.9 6.1-2 5.9a1 1 0 0 1-.59.59l-5.9 2a.5.5 0 0 1-.62-.62l2-5.9a1 1 0 0 1 .59-.59l5.9-2a.5.5 0 0 1 .62.62zM12 11a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/></svg>
+                Um plano que se adapta a você, não importa o seu nível:
+            </h2>
+            <p>Não importa se você decidiu fazer a prova hoje ou se já vem estudando há meses. O planejamento é dividido em 3 fases estratégicas:</p>
+            <ul style="list-style: none; margin-top: 20px;">
+                <li style="margin-bottom: 15px; padding: 15px; background: #ECFDF5; border-left: 4px solid #10B981; border-radius: 6px; color: #065F46;">🟢 <strong>Fase 1 (Iniciante):</strong> Para quem está voltando aos estudos agora ou nunca estudou para concursos. Crie o hábito e construa sua base.</li>
+                <li style="margin-bottom: 15px; padding: 15px; background: #FEF3C7; border-left: 4px solid #D4AF37; border-radius: 6px; color: #78350F;">🟡 <strong>Fase 2 (Intermediário):</strong> Para quem já estuda e precisa otimizar o tempo, organizar a rotina e começar a ver o desempenho decolar.</li>
+                <li style="margin-bottom: 15px; padding: 15px; background: #FEE2E2; border-left: 4px solid #EF4444; border-radius: 6px; color: #991B1B;">🔴 <strong>Fase 3 (Avançado / Reta Final):</strong> Foco total em estratégia de prova, ajustes finos, controle brutal de questões/simulados e lapidação para o grande dia.</li>
+            </ul>
+        </section>
+
+        <!-- SEÇÃO 6: ENTREGÁVEIS & BÔNUS -->
+        <section class="glass-section glass-highlight">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M20 6h-2.18A3 3 0 0 0 15 2a3 3 0 0 0-3 3 3 3 0 0 0-3-3 3 3 0 0 0-2.82 4H4a2 2 0 0 0-2 2v3a1 1 0 0 0 1 1h1v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8h1a1 1 0 0 0 1-1V8a2 2 0 0 0-2-2zm-5-2a1 1 0 0 1 1 1 1 1 0 0 1-1 1h-2a1 1 0 0 1 1-1 1 1 0 0 1 1-1zm-6 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1H8a1 1 0 0 1 1-1 1 1 0 0 1 1-1zM4 8h7v2H4V8zm2 4h5v8H6v-8zm12 8h-5v-8h5v8zm2-10h-7V8h7v2z"/></svg>
+                Veja tudo o que você vai receber com acesso imediato:
+            </h2>
+            <ul class="check-list">
+                <li><strong>Planejamento de Estudo Interativo:</strong> Com abas de controle de dias, revisões programadas e simulados.</li>
+                <li><strong>Aulas de Treinamento Passo a Passo:</strong> Nada está "solto". Gravei aulas curtas e objetivas (cerca de 10 min) explicando cada processo, como identificar seu nível atual e como usar o material na prática. Você também aprenderá a diferença crucial entre Cronograma e Ciclo de Estudos.</li>
+            </ul>
+            
+            <h3 style="margin-top: 35px; color: #1E3A8A; font-size: 1.3rem;">🎁 BÔNUS ESPECIAIS PARA QUEM AGIR AGORA:</h3>
+            
+            <div style="background: #FFFFFF; padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #D4AF37; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                <h4 style="color: #1E3A8A; margin-bottom: 8px;">1. Tira Dúvidas Online ao Vivo 👥</h4>
+                <p style="margin-bottom: 0;">Você terá um encontro comigo, uma vez por mês, até a data da próxima prova (21/02/27). Nesse encontro, você vai poder tirar suas dúvidas, ajustar sua rota de estudos e não se sentir sozinho na jornada!</p>
+            </div>
+
+            <div style="background: #FFFFFF; padding: 20px; border-radius: 8px; border-left: 4px solid #D4AF37; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                <h4 style="color: #1E3A8A; margin-bottom: 8px;">2. Módulo Mentalidade de Aprovado 🧠</h4>
+                <p style="margin-bottom: 0;">A aprovação não exige apenas conhecimento técnico, exige inteligência emocional. Neste bônus, vou te dar a base mental necessária para suportar a pressão, manter a constância e não desistir onde a maioria falha. Acreditar que é possível é o primeiro passo para vestir a farda.</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 7: AUTORIDADE -->
+        <div class="author-section">
+            <div class="author-photo-container">
+                <img src="02.jpeg" alt="Gessyca Paaz - Mentora e Aprovada em 1º Lugar">
+            </div>
+            <div>
+                <h2>
+                    <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3 1 1 0 0 0 2 0 1 1 0 1 1 2 0 1 1 0 0 0 2 0 3 3 0 0 0-3-3zm5.5 10.5a1 1 0 0 0-1 1A4.5 4.5 0 0 1 13 17.9v-4.11l1.3-1.3a1 1 0 0 0-1.42-1.42L11 13.06v-3.6a1 1 0 1 0-2 0v3.6L7.12 11.1a1 1 0 0 0-1.42 1.42l1.3 1.3v4.11A4.5 4.5 0 0 1 2.5 13.5a1 1 0 0 0-2 0 6.5 6.5 0 0 0 10.5 5.37V21a1 1 0 0 0 2 0v-2.13A6.5 6.5 0 0 0 23.5 13.5a1 1 0 0 0-1-1z"/></svg>
+                    Quem será a sua Mentora de Estudos?
+                </h2>
+                <p>Muito prazer, eu sou <strong>Gessyca Paaz</strong>. Sou Militar Temporária da Marinha e fui aprovada em <strong>1º Lugar</strong> no concurso de Oficial Temporário (Área: Educação Física) no 1º Distrito Naval — um dos mais concorridos do país.</p>
+                <p style="margin-bottom: 0;">Eu sei exatamente o que a banca cobra, conheço as armadilhas do edital e desenvolvi esse método porque senti na pele a necessidade de otimizar cada minuto do meu dia. Agora, eu empacotei a estratégia que me deu o 1º lugar para encurtar o seu caminho até a aprovação.</p>
+            </div>
+        </div>
+
+        <!-- SEÇÃO 8: OFERTA E GARANTIA -->
+        <section class="glass-section">
+            <div class="price-box">
+                <h2 style="justify-content: center;">
+                    Quanto vale ter a certeza de que você está no caminho certo?
+                </h2>
+                <p>Muitos cursinhos cobram centenas (até milhares) de reais apenas para te jogar um monte de PDFs e te deixar perdido sozinho. Hoje, você pode ter o mapa completo da sua aprovação por um valor que não paga nem um lanche no fim de semana.</p>
+                
+                <p class="old-price">De R$ 197,00</p>
+                <p style="font-size: 1.1rem; color: #64748B; margin-top: 10px;">Por apenas:</p>
+                <p class="new-price">R$ 97,99</p>
+                <p style="margin-top: -10px; margin-bottom: 25px; font-weight: bold; color: #0A192F;">à vista</p>
+                
+                <a href="https://kiwify.app/hcuyfLO" class="cta-button" target="_blank">QUERO MEU PLANEJAMENTO AGORA</a>
+                
+                <h3 style="margin-top: 40px; color: #059669; font-size: 1.25rem;">🛡️ Risco Zero: Garantia Incondicional de 7 Dias</h3>
+                <p style="font-size: 0.95rem; color: #64748B; max-width: 650px; margin: 10px auto 0;">Eu confio tanto no poder desse planejamento que assumo todo o risco. Compre agora, acesse a plataforma, baixe o material e assista às aulas. Se em até 7 dias você achar que o conteúdo não é para você, basta apertar um botão e eu devolvo 100% do seu dinheiro. Sem burocracia.</p>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 9: FAQ INTERATIVO -->
+        <section class="glass-section">
+            <h2>
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 14h-2v-2h2v2zm1.07-7.75-1.12 1.14A2.84 2.84 0 0 0 12 12h-1v-1.5a3.86 3.86 0 0 1 1.15-2.73l1.39-1.42A2 2 0 1 0 10 4.5H8a4 4 0 1 1 6.07 3.75z"/></svg>
+                Ainda tem dúvidas? (FAQ)
+            </h2>
+            <p style="margin-bottom: 25px; color: #64748B;">Clique nas perguntas abaixo para ver as respostas detalhadas.</p>
+            
+            <details class="faq-item">
+                <summary class="faq-summary">1. Como eu recebo o acesso ao Guia da Aprovação RM2?</summary>
+                <div class="faq-content">
+                    Assim que o pagamento for confirmado, você receberá automaticamente em seu e-mail de cadastro o link para acessar nossa área de membros exclusiva, onde a planilha e as aulas já estão disponíveis.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-summary">2. Serve para quem vai fazer prova para Praça e Oficial?</summary>
+                <div class="faq-content">
+                    Sim! A estrutura do planejamento foi desenhada para se adaptar perfeitamente às exigências do edital RM2, ajudando a organizar os estudos independentemente se o seu foco é o quadro de Praças ou Oficiais.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-summary">3. Eu não tenho facilidade com planilhas, vou conseguir usar?</summary>
+                <div class="faq-content">
+                    Com certeza. A planilha é altamente intuitiva e automatizada. Além disso, o produto inclui videoaulas curtas onde eu te pego pela mão e mostro exatamente como preencher cada aba, passo a passo.
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-summary">4. Até quando terei acesso ao material e aos encontros?</summary>
+                <div class="faq-content">
+                    Você terá acesso ao material da área de membros por 1 ano, e nossos encontros mensais ao vivo irão acontecer religiosamente até a data da próxima prova (21/02/27).
+                </div>
+            </details>
+
+            <div class="center-cta">
+                <a href="https://kiwify.app/hcuyfLO" class="cta-button" target="_blank">SIM, QUERO GARANTIR MINHA VAGA AGORA</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>Produzido por <a href="https://www.aionconsultoriadigital.com.br/" target="_blank">Aion Consultoria Digital</a></p>
+    </footer>
+
+</body>
+</html>
